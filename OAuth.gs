@@ -44,8 +44,8 @@ class FreeeApiOauth {
     return OAuth2.createService('freee')
       .setAuthorizationBaseUrl('https://accounts.secure.freee.co.jp/public_api/authorize')
       .setTokenUrl('https://accounts.secure.freee.co.jp/public_api/token')
-      .setClientId(this.CLIENT_ID)
-      .setClientSecret(this.CLIENT_SECRET)
+      .setClientId(this.clientId)
+      .setClientSecret(this.clientSecret)
       .setCallbackFunction('authCallback_')
       .setPropertyStore(PropertiesService.getUserProperties())
   }
