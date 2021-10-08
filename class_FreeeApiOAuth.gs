@@ -46,8 +46,22 @@ class FreeeApiOauth {
       .setTokenUrl('https://accounts.secure.freee.co.jp/public_api/token')
       .setClientId(this.clientId)
       .setClientSecret(this.clientSecret)
-      .setCallbackFunction('authCallback_')
+      .setCallbackFunction(this.authCallback)
       .setPropertyStore(PropertiesService.getUserProperties())
+  }
+
+
+  /** 
+   * 認証コールバック関数
+   */
+  authCallback(request) {
+    const service = this.getService();
+    const isAuthorized = service.handleCallback(request);
+    if (isAuthorized) {
+      return HtmlService.createHtmlOutput('認証に成功しました。タブを閉じてください。');
+    } else {
+      return HtmlService.createHtmlOutput('認証に失敗しました。');
+    };
   }
 
 
