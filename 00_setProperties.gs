@@ -13,8 +13,8 @@ function setClientIdAndSecret() {
   PropertiesService.getDocumentProperties().deleteAllProperties();
 
   //マイアプリ情報
-  const CLIENT_ID = '';
-  const CLIENT_SECRET = '';
+  const CLIENT_ID = '09f5d080771dada392ea919be7126232e1c94a3127f6a809d5eca86bf4f1d527';
+  const CLIENT_SECRET = '2a473cddbb6e0deea20b9784f95850d361072ab985edea9430f0e8b070963496';
 
   //userPropertiesに格納する
   const userProperties = PropertiesService.getUserProperties();

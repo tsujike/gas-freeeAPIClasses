@@ -3,5 +3,7 @@
  * @extends {ApiRequests} 
  */
 class Companies extends ApiRequests{
-  
+  constructor() {
+    this.a = '';
+  }
 }
