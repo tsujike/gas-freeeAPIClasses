@@ -8,7 +8,6 @@ class Companies extends ApiRequests {
     // this.url = this.baseUrl + 'companies';
     this.url = `${this.baseUrl}companies`;
 
-
   }
 
 

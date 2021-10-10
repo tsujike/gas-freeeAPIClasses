@@ -7,9 +7,17 @@ class ApiRequests {
     this.baseUrl = 'https://api.freee.co.jp/api/1/';
 
     this.params = {
-      heaer: { Autholization: `Bearer ${this.accessToken}` },
+      headers: { Authorization : `Bearer ${this.accessToken}` },
       method: 'get'
     }
+
+  }
+
+  getJson(url, params) {
+    
+    const response = UrlFetchApp.fetch(url,params).getContentText();
+    return JSON.parse(response);
+
   }
 
   // case 'companies' : this.url = 'https://api.freee.co.jp/api/1/companies'; break;
