@@ -10,6 +10,21 @@ class Companies extends ApiRequests {
 
   }
 
+  getIdAndCompaniesName() {
+    const allCompanies = this.getJson(this.url, this.params); //{}
+
+    const companiesArray = allCompanies.companies; //[]
+
+    const companies = companiesArray.map(company => {
+      const obj = {};
+      obj.id = company.id;
+      obj.display_name = company.display_name;
+      return obj;
+    }
+    );
+
+    return companies;
+  }
 
 
 
@@ -19,7 +34,6 @@ class Companies extends ApiRequests {
 //  case 'companies' : this.url = 'https://api.freee.co.jp/api/1/companies'; break;
 
 /*
-
 {
   "companies": [
     {
@@ -31,5 +45,4 @@ class Companies extends ApiRequests {
     }
   ]
 }
-
 */
