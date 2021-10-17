@@ -13,11 +13,23 @@ class ApiRequests {
 
   }
 
+
+  /** 会計freeeAPIリファレンスを取得するメソッド */
+  getReference() {
+    return 'https://developer.freee.co.jp/docs/accounting/reference';
+  }
+
+
+  /**
+   * レスポンスのJSONをオブジェクトで返すメソッド
+   * @param {string} url
+   * @param {string} params
+   * @return {Objext} JSONオブジェクト 
+   */
   getJson(url, params) {
     const response = UrlFetchApp.fetch(url, params).getContentText();
     return JSON.parse(response);
   }
-
 
 
 }
