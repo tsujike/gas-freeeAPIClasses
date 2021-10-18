@@ -6,6 +6,7 @@ class Parameters {
   /** シート名を作るコンストラクタ */
   constructor(sheetName) {
     this.sheetName = `parameters_${sheetName}`;
+    this.requestbodySheetName = `requestbody_${sheetName}`
   }
 
 
@@ -17,6 +18,13 @@ class Parameters {
     return SpreadsheetApp.getActiveSpreadsheet().getSheetByName(this.sheetName);
   }
 
+  /**
+     * リクエストボディシートを掴むメソッド
+     * @return {Object} sheetObject 
+     */
+  getRequestBodySheet() {
+    return SpreadsheetApp.getActiveSpreadsheet().getSheetByName(this.requestbodySheetName);
+  }
 
   /**
     * シートから連結したクエリ文字列を返すメソッド
@@ -39,11 +47,22 @@ class Parameters {
     */
   setParameter(property, value) {
     const sheet = this.getSheet();
-    const [headers, ...records] = sheet.getDataRange().getValues();
+    const records = sheet.getDataRange().getValues();
     records.map(record => { if (record[0] === property) return record[1] = value; });
-    sheet.getRange(2, 1, records.length, records[0].length).setValues(records);
+    sheet.getRange(1, 1, records.length, records[0].length).setValues(records);
+    SpreadsheetApp.flush();
   }
 
+
+
+  /**
+    * リクエストボディシートからvaluesを返すメソッド
+    * @return {Array} values 
+    */
+  getRequestBodyValues() {
+    const sheet = this.getRequestBodySheet();
+    return sheet.getDataRange().getValues();
+  }
 
 
 

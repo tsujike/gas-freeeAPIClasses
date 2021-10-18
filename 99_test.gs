@@ -1,10 +1,36 @@
+
+
+/**
+ *  * TEST用関数
+ * */
+function testAccountItems() {
+
+  const a = new AccountItems();
+
+  //全件検索
+  console.log(a.getAccountItems());
+
+  //あいまい検索
+  console.log(a.getAccountItemsByFilter('売上高'));
+
+  //完全一致
+  console.log(a.getAccountItemId('売上高'));
+
+
+}
+
+
+
+/**
+ *  * TEST用関数
+ * */
 function testCompanies() {
 
   const c = new Companies();
   const url = c.url;
   const params = c.params;
 
-  const obj = c.getJson(url, params);
+  const obj = c.fetchRequest(url, params);
 
   console.log(c.getCompanies());
 
@@ -33,17 +59,27 @@ function testCompanies() {
 
 
 /**
- *  * TEST用関数
- * */
+ * TEST用関数
+ */
 function testDeals() {
 
   const d = new Deals();
-  // console.log(d.getDeals());
-  // console.log(d.getDealValues());
+  // const values = d.getDealValues();
+  // const sheet = SpreadsheetApp.openById('1v40ooyVLGFH3wT3K4mhKb3p8FdH6B-X0qVlVwz9fekM').getSheetByName('テスト');
+  // sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
 
-  const values = d.getDealValues();
-  const sheet = SpreadsheetApp.openById('1uIind-5VSSAfFYNi3t500nCCrw5pbctpzGoHelKJTEY').getSheetByName('シート7');
-  sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
+
+  console.log(d.getHeaders());
+
+}
+
+/**
+ * TEST用関数
+ */
+function testPostDeal() {
+
+  const d = new Deals();
+  console.log(d.postDeal());
 
 }
 
@@ -55,12 +91,12 @@ function testDeals() {
 function testPertners() {
 
 
-//ザックリ検索
+  //ザックリ検索
   const p = new Partners();
-  console.log(p.getPartners('フリー'));
+  console.log(p.getPartners('テスト'));
 
   //完全一致
-  console.log(p.getPartnerId('株式会社フリー')); //39343903
+  // console.log(p.getPartnerId('株式会社フリー')); //39343903
 
 }
 
@@ -70,16 +106,13 @@ function testPertners() {
 /**
  *  * TEST用関数
  * */
-function myFunction_20211017_114945() {
+function testWalletables() {
 
-  const array = [['name', 'tsujike'], ['id', 101], ['address', 'hoge']];
+  const w = new Walletables();
+  console.log(w.getWalletables());
 
-  array.map(record => {
-    if (record[0] === 'name') return record[1] = 'Takahashi';
-  }
-
-  )
-
-  console.log(array); //[ [ 'name', 'Takahashi' ], [ 'id', 101 ], [ 'address', 'hoge' ] ]
 }
+
+
+
 

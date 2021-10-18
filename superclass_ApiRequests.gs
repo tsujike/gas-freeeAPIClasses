@@ -11,6 +11,14 @@ class ApiRequests {
       method: 'get'
     }
 
+    this.postParams = {
+      contentType: 'application/json',
+      headers: { Authorization: `Bearer ${this.accessToken}` },
+      method: 'post',
+      payload: '',
+      muteHttpExceptions: false
+    }
+
   }
 
 
@@ -26,7 +34,7 @@ class ApiRequests {
    * @param {string} params
    * @return {Objext} JSONオブジェクト 
    */
-  getJson(url, params) {
+  fetchRequest(url, params) {
     const response = UrlFetchApp.fetch(url, params).getContentText();
     return JSON.parse(response);
   }

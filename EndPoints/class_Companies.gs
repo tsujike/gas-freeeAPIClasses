@@ -16,7 +16,7 @@ class Companies extends ApiRequests {
     * @return {Array} companies [{id,name},{id,name}] 
     */
   getCompanies() {
-    const allCompanies = this.getJson(this.url, this.params); //{}
+    const allCompanies = this.fetchRequest(this.url, this.params); //{}
     const companiesArray = allCompanies.companies; //[]
     return companiesArray;
   }
