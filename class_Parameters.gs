@@ -41,21 +41,6 @@ class Parameters {
 
 
   /**
-    * シートの指定Parameterに値を入力するメソッド
-    * @param {string} property -  
-    * @param {string} value -  
-    */
-  setParameter(property, value) {
-    const sheet = this.getSheet();
-    const records = sheet.getDataRange().getValues();
-    records.map(record => { if (record[0] === property) return record[1] = value; });
-    sheet.getRange(1, 1, records.length, records[0].length).setValues(records);
-    SpreadsheetApp.flush();
-  }
-
-
-
-  /**
     * リクエストボディシートからvaluesを返すメソッド
     * @return {Array} values 
     */
@@ -67,4 +52,19 @@ class Parameters {
 
 
 }
+
+
+
+  // /**
+  //   * シートの指定Parameterに値を入力するメソッド
+  //   * @param {string} property -  
+  //   * @param {string} value -  
+  //   */
+  // setParameter(property, value) {
+  //   const sheet = this.getSheet();
+  //   const records = sheet.getDataRange().getValues();
+  //   records.map(record => { if (record[0] === property) return record[1] = value; });
+  //   sheet.getRange(1, 1, records.length, records[0].length).setValues(records);
+  //   SpreadsheetApp.flush();
+  // }
 

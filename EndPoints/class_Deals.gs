@@ -85,10 +85,6 @@ class Deals extends ApiRequests {
   }
 
 
-
-
-
-
   /**
     * 取引（収入／収支）Valuesをすべて取得するメソッド
     * @return {Object} values
@@ -136,13 +132,8 @@ class Deals extends ApiRequests {
   }
 
 
-  /** 明細行の分割までは実装できていない。やる必要あるのか？検索条件で絞るもの？ */
-
-
-
-
-
 }
+  /** 明細行の分割までは実装できていない。やる必要あるのか？検索条件で絞るもの？ */
 
 
 

@@ -9,6 +9,7 @@
 
 /** 初回、および認証が切れているときに実行する */
 //実行ログに「実行完了」が表示されたらスプレッドシートを確認します
+
 function alertAuth() {
 
   const freeeOAuthObject = OAuth2.createService('freee')
@@ -16,7 +17,7 @@ function alertAuth() {
     .setTokenUrl('https://accounts.secure.freee.co.jp/public_api/token')
     .setClientId(CLIENT_ID)
     .setClientSecret(CLIENT_SECRET)
-    .setCallbackFunction('authCallback')
+    .setCallbackFunction('authCallback_')
     .setPropertyStore(PropertiesService.getUserProperties());
 
   const authorizationUrl = freeeOAuthObject.getAuthorizationUrl();
@@ -29,19 +30,21 @@ function alertAuth() {
   const page = template.evaluate();
   SpreadsheetApp.getUi().showModalDialog(page, "認証をしてください");
 
+  console.log('スプレッドシートを開く');
+
 }
 
 
 
 //認証コールバック関数
-function authCallback(request) {
+function authCallback_(request) {
 
   const service = OAuth2.createService('freee')
     .setAuthorizationBaseUrl('https://accounts.secure.freee.co.jp/public_api/authorize')
     .setTokenUrl('https://accounts.secure.freee.co.jp/public_api/token')
     .setClientId(CLIENT_ID)
     .setClientSecret(CLIENT_SECRET)
-    .setCallbackFunction('authCallback')
+    .setCallbackFunction('authCallback_')
     .setPropertyStore(PropertiesService.getUserProperties());
 
   const isAuthorized = service.handleCallback(request);
