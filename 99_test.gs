@@ -45,6 +45,7 @@ function testCompanies() {
 
 
 
+
 /**
  * TEST用関数
  */
@@ -99,5 +100,14 @@ function testWalletables() {
 }
 
 
+/**
+ *  * TEST用関数
+ * */
+function testTrialBs() {
 
+  const t = new TrialBs();
+  console.log(t.getBs());
+  console.log(t.getBsItems(1,12));
+
+}
 

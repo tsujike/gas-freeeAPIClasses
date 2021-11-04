@@ -12,7 +12,7 @@ class TrialBs extends ApiRequests {
     const companiesId = '3292996';
     const url = `${this.url}?company_id=${companiesId}`;
     const allBs = this.fetchRequest(url, this.params); //{}
-    const bsJson = allbs.trial_bs; //[]
+    const bsJson = allBs.trial_bs; //[]
     return bsJson;
   }
 
@@ -39,11 +39,14 @@ class TrialBs extends ApiRequests {
   approval_flow_status=all
   */
 
-  getBsItems() {
+  getBsItems(startMonth, endMonth, adjustment='without') {
     const companiesId = '3292996';
-    const url = `${this.url}?company_id=${companiesId}`;
-    const allBs = this.fetchRequest(url, this.params); //{}
+    const year = 'fiscal_year=2013';
 
+    const url = `${this.url}?company_id=${companiesId}&breakdown_display_type=item&${year}&start_month=${startMonth}&end_month=${endMonth}&adjustment=${adjustment}`;
+
+    const allBsItems = this.fetchRequest(url, this.params); //{}
+    return allBsItems;
   }
 
 
