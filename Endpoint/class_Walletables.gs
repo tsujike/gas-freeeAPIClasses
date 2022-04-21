@@ -26,3 +26,23 @@ class Walletables extends ApiRequests {
 
 
 }
+
+
+
+
+
+
+
+
+/**
+ *  * TEST用関数
+ * */
+function testWalletables() {
+
+  const w = new Walletables();
+  console.log(w.getWalletables());
+
+}
+
+
+

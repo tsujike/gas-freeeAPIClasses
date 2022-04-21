@@ -35,3 +35,17 @@ class Companies extends ApiRequests {
   }
 
 }
+
+
+
+
+/** TEST用関数 */
+function testCompanies() {
+
+  const c = new Companies();
+
+  console.log(c.getCompanies());
+
+  console.log(c.getCompaniesId('開発'));
+
+}

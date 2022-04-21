@@ -43,3 +43,22 @@ class Partners extends ApiRequests {
 
 
 }
+
+
+
+
+
+/**
+ *  * TEST用関数
+ * */
+function testPertners() {
+
+
+  //ザックリ検索
+  const p = new Partners();
+  console.log(p.getPartners('テスト'));
+
+  //完全一致
+  // console.log(p.getPartnerId('株式会社フリー')); //39343903
+
+}

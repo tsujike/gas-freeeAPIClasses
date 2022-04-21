@@ -154,3 +154,31 @@ class Deals extends ApiRequests {
 '非課売上:23'
 '非課仕入:37'
 */
+
+
+
+/**
+ * TEST用関数
+ */
+function testDeals() {
+
+  const d = new Deals();
+  const values = d.getDealValues();
+  const sheet = SpreadsheetApp.openById('1v40ooyVLGFH3wT3K4mhKb3p8FdH6B-X0qVlVwz9fekM').getSheetByName('テスト');
+  sheet.getRange(40, 1, values.length, values[0].length).setValues(values);
+
+
+}
+
+
+
+
+/**
+ * TEST用関数
+ */
+function testPostDeal() {
+
+  const d = new Deals();
+  console.log(d.postDeal());
+
+}
