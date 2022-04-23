@@ -22,6 +22,11 @@ function alertAuth() {
 
   const authorizationUrl = freeeOAuthObject.getAuthorizationUrl();
 
+  // スタンドアロンスクリプトの場合
+  // console.log(authorizationUrl);
+  // return
+
+  //コンテナバインドスクリプトの場合
   const template = HtmlService.createTemplate(
     '<a href="<?= authorizationUrl ?>" target="_blank">認証</a>. ' +
     'こちらをクリックすると表示される新しいウィンドウで「許可する」をクリックしてください。');
