@@ -11,20 +11,20 @@ function testAccountItems() {
   const queries = p.getQueries();
 
   const url = a.url + queries;
-  console.log(url); //https://api.freee.co.jp/api/1/account_items?company_id=3293428
+  // console.log(url); //https://api.freee.co.jp/api/1/account_items?company_id=3293428
 
 
-  return
+
 
   //全件検索
   console.log(a.getAccountItems());
 
 
   //あいまい検索
-  console.log(a.getAccountItemsByFilter('売上高'));
+  // console.log(a.getAccountItemsByFilter('売上高'));
 
   //完全一致
-  console.log(a.getAccountItemId('売上高'));
+  // console.log(a.getAccountItemId('売上高'));
 
 
 }
@@ -70,20 +70,7 @@ function testPostDeal() {
 
 
 
-/**
- *  * TEST用関数
- * */
-function testPertners() {
 
-
-  //ザックリ検索
-  const p = new Partners();
-  console.log(p.getPartners('テスト'));
-
-  //完全一致
-  // console.log(p.getPartnerId('株式会社フリー')); //39343903
-
-}
 
 
 
